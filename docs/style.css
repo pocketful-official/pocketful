@@ -1,0 +1,234 @@
+/* The Pocketful website: the app's colours (design/tokens.json), dark like the app, or light
+   when the device asks for it. No fonts, scripts or anything else from elsewhere. */
+
+:root {
+  color-scheme: dark light;
+  --bg: #121212;
+  --bg-2: #0b0b0b;
+  --surface: #181818;
+  --surface-2: #242424;
+  --border: #2e2e2e;
+  --text: #ffffff;
+  --muted: #a7a7a7;
+  --faint: #6a6a6a;
+  --accent: #fb923c;        /* the app's orange, for fills */
+  --accent-text: #fb923c;   /* the same orange, for text and links */
+  --accent-ink: #1a0d03;
+  --glow: rgba(251, 146, 60, 0.16);
+  --radius: 12px;
+  --tile: 18px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fafafa;
+    --bg-2: #f1f1f1;
+    --surface: #ffffff;
+    --surface-2: #f0f0f0;
+    --border: #e2e2e2;
+    --text: #121212;
+    --muted: #555555;
+    --faint: #8a8a8a;
+    --accent-text: #b45309; /* dark enough to read on white */
+    --glow: rgba(251, 146, 60, 0.20);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+.wide { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+/* ---------- header ---------- */
+
+header.top { border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+header.top .wrap, header.top .wide { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; font-size: 18px; text-decoration: none; letter-spacing: -0.01em; }
+.brand svg { width: 28px; height: 28px; color: var(--accent); flex: none; }
+nav.links { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+nav.links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+nav.links a:hover, nav.links a[aria-current="page"] { color: var(--text); }
+nav.links a.cta { color: var(--accent-ink); background: var(--accent); padding: 6px 14px; border-radius: 999px; }
+@media (max-width: 520px) { nav.links a.hide-sm { display: none; } }
+
+main { padding: 8px 0 48px; }
+
+/* ---------- text ---------- */
+
+h1 { font-size: 32px; line-height: 1.2; margin: 32px 0 8px; letter-spacing: -0.02em; }
+h2 { font-size: 22px; line-height: 1.3; margin: 40px 0 8px; letter-spacing: -0.01em; }
+h3 { font-size: 17px; margin: 24px 0 4px; }
+p, ul, ol { margin: 0 0 14px; }
+ul, ol { padding-left: 22px; }
+li { margin-bottom: 6px; }
+.lead { color: var(--muted); font-size: 18px; }
+.muted { color: var(--muted); }
+.small { font-size: 14px; }
+.eyebrow { color: var(--accent-text); font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 12px; }
+
+a { color: var(--accent-text); text-underline-offset: 2px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;
+  padding: 0 26px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none;
+  background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent);
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn svg { width: 18px; height: 18px; }
+.buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- hero ---------- */
+
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
+  background: radial-gradient(700px 500px at 78% 45%, var(--glow), transparent 70%), var(--bg); }
+.hero .wide { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
+@media (min-width: 860px) { .hero .wide { grid-template-columns: 1.05fr 1fr; padding-top: 88px; padding-bottom: 88px; } }
+.hero h1 { font-size: clamp(38px, 8vw, 64px); line-height: 1.04; margin: 0 0 18px; letter-spacing: -0.035em; }
+.hero h1 span { color: var(--accent-text); }
+.hero .sub { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); margin: 0 0 28px; max-width: 34em; }
+.hero .meta { color: var(--faint); font-size: 14px; margin: 18px 0 0; }
+.hero .map { width: 100%; max-width: 480px; justify-self: center; }
+
+.map text { fill: var(--muted); font: 600 15px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.map .edge { stroke: var(--border); stroke-width: 2; }
+.map .node { fill: var(--surface-2); stroke: var(--faint); stroke-width: 2; }
+.map .hub-bg { fill: var(--bg); }
+.map .hub { color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .map .pulse { transform-origin: 240px 240px; animation: pulse 3.2s ease-out infinite; }
+  .map .node { animation: breathe 4s ease-in-out infinite; }
+  .map .node:nth-of-type(2n) { animation-delay: -2s; }
+}
+@keyframes pulse { 0% { transform: scale(.6); opacity: .55; } 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes breathe { 50% { stroke: var(--accent); } }
+
+/* ---------- promises ---------- */
+
+.promises { border-bottom: 1px solid var(--border); background: var(--bg-2); }
+.promises .wide { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 700px) { .promises .wide { grid-template-columns: repeat(3, 1fr); } }
+.promise { padding: 22px 8px; display: flex; gap: 14px; align-items: flex-start; }
+.promise svg { width: 26px; height: 26px; color: var(--accent); flex: none; margin-top: 2px; }
+.promise b { display: block; font-size: 17px; }
+.promise span { color: var(--muted); font-size: 15px; }
+
+/* ---------- features ---------- */
+
+.section { padding: 72px 0 8px; }
+.section > .wide > h2 { font-size: clamp(28px, 5vw, 40px); line-height: 1.12; margin: 0 0 12px; letter-spacing: -0.03em; max-width: 18em; }
+.section > .wide > .lead { max-width: 40em; margin-bottom: 32px; }
+
+.tiles { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .tiles.three { grid-template-columns: repeat(3, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: var(--tile); padding: 24px; }
+.tile .icon { width: 44px; height: 44px; border-radius: 12px; background: var(--surface-2); display: grid; place-items: center; margin-bottom: 16px; }
+.tile .icon svg { width: 22px; height: 22px; color: var(--accent); }
+.tile h3 { margin: 0 0 6px; font-size: 19px; letter-spacing: -0.01em; }
+.tile p { color: var(--muted); margin: 0; }
+.tile.big { grid-column: 1 / -1; display: grid; gap: 24px; align-items: center;
+  background: radial-gradient(500px 300px at 85% 50%, var(--glow), transparent 70%), var(--surface); }
+@media (min-width: 760px) { .tile.big { grid-template-columns: 1.2fr 1fr; padding: 36px; } }
+.tile.big h3 { font-size: clamp(22px, 3.4vw, 28px); letter-spacing: -0.02em; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1px solid var(--border); background: var(--surface-2); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; color: var(--text); }
+.chip.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+/* ---------- bands ---------- */
+
+.band { margin: 72px 0 0; }
+.band .inner { border: 1px solid var(--border); border-radius: 24px; padding: 40px 28px; text-align: center;
+  background: radial-gradient(600px 260px at 50% 0%, var(--glow), transparent 75%), var(--surface); }
+.band h2 { font-size: clamp(26px, 4.6vw, 36px); margin: 0 0 10px; letter-spacing: -0.03em; }
+.band p { color: var(--muted); max-width: 36em; margin: 0 auto 22px; }
+.band .buttons { justify-content: center; }
+
+.fine { margin: 40px auto 0; max-width: 46em; text-align: center; color: var(--faint); font-size: 14px; }
+.fine a { color: var(--muted); }
+
+/* ---------- get it ---------- */
+
+.cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 16px 0; }
+@media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--tile); padding: 22px 24px; }
+.card h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+.card h3 svg { width: 22px; height: 22px; color: var(--accent); }
+.card p:last-child, .card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card .btn { margin-top: 6px; }
+
+details.more { border-top: 1px solid var(--border); padding: 18px 0; }
+details.more:last-of-type { border-bottom: 1px solid var(--border); }
+details.more summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+details.more summary::-webkit-details-marker { display: none; }
+details.more summary::after { content: "+"; color: var(--accent-text); font-size: 24px; font-weight: 400; line-height: 1; }
+details.more[open] summary::after { content: "–"; }
+details.more > div { padding-top: 12px; color: var(--muted); }
+details.more > div b, details.more > div code { color: var(--text); }
+
+code, pre { font-family: ui-monospace, Consolas, "Cascadia Mono", Menlo, monospace; font-size: 14px; }
+code { background: var(--surface-2); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+pre { background: var(--surface-2); padding: 12px 14px; border-radius: var(--radius); overflow-x: auto; margin: 0 0 14px; }
+pre code { background: none; padding: 0; }
+
+.email { font-size: 20px; font-weight: 700; overflow-wrap: anywhere; }
+
+/* ---------- footer ---------- */
+
+footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; margin-top: 24px; }
+footer .wrap, footer .wide { padding-top: 24px; padding-bottom: 36px; }
+footer a { color: var(--muted); }
+footer p { margin: 0 0 6px; }
+footer .brand { font-size: 16px; margin-bottom: 8px; }
+footer .brand svg { width: 22px; height: 22px; }
+footer p a { white-space: nowrap; }
+
+/* ---------- text pages (disclaimer, licence, notices, safety) ---------- */
+
+.doc { padding-bottom: 48px; overflow-wrap: anywhere; }
+.doc h1 { margin-top: 40px; }
+.doc h2 { font-size: 20px; }
+.doc p, .doc li { color: var(--muted); }
+.doc b, .doc code { color: var(--text); }
+.table { overflow-x: auto; margin: 0 0 18px; border: 1px solid var(--border); border-radius: var(--radius); }
+.table table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.table th, .table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.table th { color: var(--text); background: var(--surface); }
+.table tr:last-child td { border-bottom: 0; }
+
+/* ---------- app screens ---------- */
+
+.shots { position: relative; width: 100%; max-width: 560px; justify-self: center; padding-bottom: 8%; }
+.window { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .03); }
+.window .bar { height: 22px; display: flex; gap: 6px; align-items: center; padding: 0 10px; background: #1b1b1b; }
+.window .bar i { width: 8px; height: 8px; border-radius: 50%; background: #3a3a3a; }
+.window img, .phone img { display: block; width: 100%; height: auto; }
+.phone { border-radius: 26px; overflow: hidden; border: 5px solid #1f1f1f; background: #000;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .55); }
+.shots .phone { position: absolute; width: 34%; right: -4%; bottom: -6%; }
+@media (max-width: 859px) { .shots .phone { right: 0; } }
+
+.screens { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; margin-top: 8px; }
+@media (min-width: 760px) { .screens { grid-template-columns: 1.6fr 1fr; } }
+.phones { display: flex; gap: 14px; justify-content: center; }
+.phones .phone { width: 46%; max-width: 230px; }
+.screens figcaption, .shot-cap { color: var(--faint); font-size: 14px; text-align: center; margin-top: 10px; }
+
+/* Download cards: the buttons line up at the bottom, whatever the text above them. */
+.card { display: flex; flex-direction: column; }
+.card .btn { margin-top: auto; align-self: flex-start; }
+.card ol { margin-bottom: 18px; }
