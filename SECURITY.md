@@ -7,8 +7,8 @@ check your download yourself.
 
 No accounts, no tracking, no ads, no analytics. Pocketful talks only to:
 
-- the music services you use it with (Deezer, MusicBrainz and the others listed in
-  THIRD-PARTY-NOTICES.md), to find and play music;
+- the music services you use it with (Deezer, MusicBrainz and the others listed in the
+  [third-party notices](THIRD-PARTY-NOTICES.md)), to find and play music;
 - this project's releases page, once a day if you leave it on, to see if there's a new
   version;
 - this project's `status.json`, about once an hour (see "The project's switch" below).
@@ -42,21 +42,26 @@ On Android, the app is signed with the project's own certificate
 `25:76:F1:07:0A:8B:B4:DB:48:D1:DC:8B:F5:E4:2C:E3:7F:CD:3F:FB:57:DE:EC:27:6B:D8:70:35:26:07:07:AB`),
 and Android itself refuses any update signed with another.
 
-## Scan it
+## Scan it yourself
 
-Upload the file to [VirusTotal](https://www.virustotal.com), which checks it with about 70
-antivirus engines, or search there for its SHA-256.
+Upload the file to [VirusTotal](https://www.virustotal.com/gui/home/upload), which checks it
+with about 70 antivirus engines, or search there for its SHA-256.
 
-One or two little-known engines may flag the Windows app. That happens to most apps made
-with PyInstaller, the tool that packs Python into an .exe, because some malware uses the
-same packer. The well-known engines (Microsoft Defender, Kaspersky, ESET, Bitdefender) are
-the ones to look at.
+One or two little-known engines may flag the Windows app. That happens to many small free
+apps that aren't signed with a paid certificate, because some engines are wary of any
+program they rarely see. The well-known engines (Microsoft Defender, Kaspersky, ESET,
+Bitdefender) are the ones to look at.
 
 ## The project's switch
 
 The project can show you a message, pause downloads, or switch Pocketful off, for example
 if a version turns out to have a security problem or if the project ends. It does this with
 `status.json`, signed with the same offline key, so nobody else can use it.
+
+A second project key can sign `status.json` too, so the switch can be used quickly, but it can
+only do the mildest part: show a notice, pause downloads, switch Pocketful off for a while and
+switch it back on. It can't sign an update, retire a version, close the project for good or
+change the project's address; only the offline key can.
 
 - It can show a notice, pause downloading and streaming, or show a "switched off" screen;
   it can also retire a version older than a given one.

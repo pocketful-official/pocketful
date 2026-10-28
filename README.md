@@ -48,12 +48,6 @@ their names and their order.
 - **Your files**, brought in and tidied by artist and album.
 - **Automatic backups** with a password of your choice: a new phone or PC picks up where you were.
 
-## Sound
-
-- **An equalizer for every place**: Car, Warm, Less harsh, Night and more, or your own.
-- **Even volume**, so you never reach for the knob between songs.
-- **Clean on loud songs**: the loudest parts are never cut off.
-
 ## Everywhere
 
 - **Windows 10 and 11**: speakers, headphones and Bluetooth. Unzip and play, nothing to install.
@@ -70,10 +64,22 @@ their names and their order.
 3. **Android:** on the phone, get `Pocketful-android-<version>.apk`, open it and allow your
    browser to install apps.
 
-Every release lists the SHA-256 of each file in `SHA256SUMS.txt`, signed with the project's
-offline key. The apps check that signature before installing any update; anything else is
-refused. See the [website](https://pocketful-official.github.io/pocketful/#check) and
-[SECURITY.md](SECURITY.md).
+## No viruses. Nothing hidden. And you can check.
+
+You don't have to take our word for it:
+
+- **Signed by the project.** Every release is signed with a key that is kept offline and never
+  goes online, and the apps refuse any update that isn't. Its public half is
+  `b9daab648cf354a7838b8e92d575fc871c949cfa9fa5e5f2c6f9d6cb20b993b9`.
+- **Every file's fingerprint, published.** The SHA-256 of every file comes with each release in
+  `SHA256SUMS.txt`, signed with the same key.
+- **Scan it yourself.** Upload the file to [VirusTotal](https://www.virustotal.com/gui/home/upload)
+  and see what about 70 antivirus engines say.
+- **Talks only to what it needs.** The music services it finds and plays music with, and this
+  project's page on GitHub, for updates and notices. No ads, no trackers, no account.
+
+More on the [website](https://pocketful-official.github.io/pocketful/#safe) and in
+[Is it safe?](SECURITY.md)
 
 ## Support the artists
 
@@ -91,8 +97,8 @@ music service. Please read the [disclaimer](DISCLAIMER.md).
 
 A personal, non-commercial project, made anonymously by **The Pocketful Project**. Free for
 non-commercial use under the [PolyForm Noncommercial License 1.0.0](LICENSE.md).
-Third-party software is listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), and how
-to check a download in [SECURITY.md](SECURITY.md).
+Third-party software is listed in the [third-party notices](THIRD-PARTY-NOTICES.md), and how
+to check a download in [Is it safe?](SECURITY.md)
 
 Bugs, ideas, questions: **Feedback** in the app's Settings, or the
 [contact page](https://pocketful-official.github.io/pocketful/contact/).

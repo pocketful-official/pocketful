@@ -5,6 +5,112 @@ your phone grow together: each release says what changed on your computer and on
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-10-28
+
+**Share a song with its picture, radios that sound like the artist, and a steadier Pocketful.**
+It also brings everything in 0.14.1, which was never published.
+
+**Pocketful 0.14.0 on your computer can't install this update by itself.** Download this
+version from the website once and use it in place of the old one: your music and settings stay.
+From here on, updates install themselves again.
+
+### On both
+
+- **Share a song, with its picture**: its cover, its title and its artist, as a picture for a
+  chat or a story, with a line to send along. The picture is made on your device; the link
+  goes to Pocketful's page.
+- **The Pocketful mix**: an artist's radio now starts with the artist and stays with the
+  artists around them. Music-Map, ListenBrainz, Deezer mix and YouTube Music mix are still in
+  *Mix options*. A radio says when it has fewer songs than you asked for, or when a service
+  didn't answer, and *Another mix* gives a different list, for a song's radio too.
+- **Stream or download, when you sync**: syncing your phone and your computer asks first how
+  you want the songs, and new songs that arrive by themselves follow your choice.
+- **Clear messages**: when something goes wrong, Pocketful says what happened and what to do,
+  with the technical part behind *Details*. *Send feedback* has **Copy problem report**: the
+  versions and the last problems, nothing about your music.
+- **On a VPN**: Pocketful keeps to the kind of connection VPNs carry best, and when the music
+  server refuses the connection it says so once, with what to do.
+- A text file of links asks *Stream* or *Download*, like a pasted link.
+- With *Whole albums* on, a list of more than 50 songs asks first: every album its songs come
+  from can be thousands of songs.
+- CSV files: column names in Portuguese, Spanish, French, German and Italian work too, an
+  *Order* column keeps the order, and a row with only an artist and an album brings the whole
+  album. *Your whole library* explains the format and can *Save an example file*.
+- *Read Spotify's own mixes anonymously* now applies to Song Radio, Daily Mix and the other
+  playlists Spotify makes for you; everyone's own playlists are read directly.
+- Automatic backups have a name of their own ("Pocketful auto-backup …") and never delete the
+  backups you make yourself. *Backups to keep* says how many stay.
+- When the Pocketful project has something to tell you, or has had to pause downloads or switch
+  Pocketful off for a while, it says so on a page of its own. After a pause, Pocketful comes
+  back by itself within minutes; *Check again* looks right away.
+- Fixed: big Spotify playlists could come in with only their first 100 songs.
+- Fixed: "Unknown Artist" (songs whose file names no artist) showed up as an artist to explore.
+- *Remove from library* has *Undo*.
+- If your music folder isn't there (a drive that isn't plugged in, a memory card taken out),
+  Pocketful says so, with *Try again* and *Choose another folder*.
+- Pausing while a song loads no longer starts it again.
+- Offline, the map says it needs the internet.
+- Reset settings keeps your paired devices and your automatic backups.
+- Songs and artists written in other alphabets (Cyrillic, Greek, Arabic, Japanese…) now come
+  in, download and stay in your library.
+- A CSV saved by Excel opens too, and an album listed under a playlist in the file goes into
+  that playlist.
+- *Whole albums* next to a link is for that link only; the default stays in Settings.
+- On a network where IPv6 doesn't work, songs start in seconds instead of minutes.
+- A song file left by an earlier install is used again, instead of a second copy named
+  "(2)".
+- "Unknown artist" (songs with no artist) has no radio and no *Support* button.
+
+### On your computer
+
+- Fixed: a setting you had just changed could switch itself back a few seconds later.
+- Fixed: *Picks up where you left off* could forget the second you were at when you closed
+  Pocketful.
+- Opening Pocketful while it's already open brings its window to the front.
+- *Shuffle* now shuffles what's left of Up next; turning it off puts it back in order.
+- Playlists' own pictures show again.
+- Reset settings also keeps your equalizer presets.
+- Backups bring back *Recently played* too.
+- Escape closes any menu or sheet, and the *Welcome tour* can be left at any time.
+- Offline, *Updates* says it couldn't check, and looks again soon.
+- Changing the folder layout keeps the music where it was.
+- Fixed: Pocketful could open with a broken window just after Windows restarted. It now always
+  opens with the right window, or says plainly what to do.
+- Fixed: now and then Pocketful didn't open at all, with no window and no message. If Windows'
+  part that draws the window gets stuck, Pocketful starts again by itself; opening it again
+  while it's closing works too.
+- Big libraries: *Songs* shows every song (not only the first 5,000), *Select all* takes them
+  all, pages say "Loading…" instead of looking empty, and *For you* opens much faster.
+- Nothing is made in your Music folder before you've chosen where your music goes.
+- Fixed: installing an update closed Pocketful without updating it.
+
+### On your phone
+
+- Fixed: in 0.14.0, adding songs failed: *Stream*, *Download*, sharing to Pocketful and
+  importing a file. Everything you add comes in again.
+- Photos and covers that didn't load (often on a VPN) now come back by themselves.
+- *Keep the music going* keeps going: it stopped after adding songs once.
+- A download that fails says why, with *Try again* and *Copy problem report*.
+- *Select all* in the Library, and a bar with *Download*, *Delete downloads*, *Add to playlist*
+  and *Remove from library*.
+- A song's menu scrolls on smaller screens, so every entry can be reached.
+- A spinner shows while a song loads, and *Repeat one* has its own icon.
+- *Rename playlist*, and an × to clear the Library search.
+- *We found N songs* on the first start counts only songs, not sounds or voice notes, and
+  *Just Out* shows the artists' names.
+- Fixed: syncing with Download chosen could download the songs your phone had just sent to the
+  computer. Only the computer's new songs download now.
+- Big libraries: *Select all* and the bar's actions no longer freeze Pocketful, and the Library
+  says "Loading…" right after a start instead of "Nothing here yet".
+- The Library search finds "Björk" when you type "Bjork".
+- The selection bar is in the same order as on your computer, and on the Playlists shelf it
+  deletes the playlists (their songs stay).
+- A link shared to Pocketful while Settings is open shows right away.
+- When Android closes Pocketful in the background, it comes back on the same tab.
+- The mini player says why the music stopped, also when a song isn't available.
+- Switches and search fields are named for screen readers, and the back gesture shows where it
+  goes.
+
 ## [0.14.0] - 2026-10-21
 
 **Picks up where you left off.** The first release for everyone: it also brings everything

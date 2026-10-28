@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pocketful: find music you'll love, keep it in your pocket</title>
-<meta name="description" content="Pocketful is a free music app for Windows and Android. Discover new artists on a map of music, bring in your CDs and files, and keep it all in a library of your own. No ads, no account, no tracking.">
+<meta name="description" content="Pocketful is a free music app for Windows and Android. Discover new artists on a map of music, bring in your playlists, your CDs and your files, and keep it all in a library of your own. No ads, no account, no tracking.">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#121212">
 <meta property="og:type" content="website">
@@ -18,29 +18,33 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 
 <!-- Line icons, drawn once and reused (plain strokes, like the apps; never emoji). -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></symbol>
-    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="5.5" r="1.8"/><circle cx="19.5" cy="6.5" r="1.8"/><circle cx="18" cy="19" r="1.8"/><circle cx="5" cy="18" r="1.8"/><path d="M6 7l4.2 3.4M18 8l-4.2 2.8M16.6 17.6l-2.9-3.6M6.5 16.8l3.6-3.1"/></symbol>
-    <symbol id="i-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></symbol>
-    <symbol id="i-disc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 5.5a6.5 6.5 0 0 0-6.5 6.5"/></symbol>
-    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2h8.5A1.5 1.5 0 0 1 21 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="11" cy="14.5" r="1.6"/><path d="M12.6 14.5V10.5l2.6.8"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2z"/></symbol>
     <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 11h12M4 16h7"/><circle cx="17" cy="17" r="2.2"/><path d="M19.2 17V9.5l2 .7"/></symbol>
-    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v16M12 4v16M18 4v16"/><rect x="4" y="13" width="4" height="3" rx="1"/><rect x="10" y="7" width="4" height="3" rx="1"/><rect x="16" y="11" width="4" height="3" rx="1"/></symbol>
+    <symbol id="i-devices" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="14" height="10" rx="1.5"/><path d="M1.5 18.5h11"/><rect x="15.5" y="9" width="6.5" height="11.5" rx="1.5"/><path d="M18 18h1.5"/></symbol>
     <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="5" width="15" height="10" rx="1.5"/><path d="M2.5 19h19"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></symbol>
-    <symbol id="i-usb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7.5" y="9" width="9" height="12.5" rx="1.5"/><path d="M9.5 9V3h5v6M11 5.5h0M13 5.5h0"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
-    <symbol id="i-noad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8 20 3M16.5 6.5l3 3M14 9l2.2 2.2"/></symbol>
+    <symbol id="i-finger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 6.4A8 8 0 0 1 20 12v1"/><path d="M4.3 9.5A8 8 0 0 0 4 12v2"/><path d="M8.3 9.2A4.5 4.5 0 0 1 16.5 12v2.2a10 10 0 0 1-.9 4.1"/><path d="M7.5 12v2a6.5 6.5 0 0 1-1.6 4.4"/><path d="M12 12v2.4a9.6 9.6 0 0 1-2.4 6.3"/><path d="M19.8 16.5a14 14 0 0 1-1.2 3.3"/></symbol>
     <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/><path d="M3.5 3.5l17 17"/></symbol>
     <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12s3.3-6 9-6c2 0 3.7.7 5.1 1.7M21 12s-3.3 6-9 6c-2 0-3.7-.7-5.1-1.7"/><path d="M4 20L20 4"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0M12 20h.01"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="11" width="15" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4.5M12 8h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7 7 17M7 7l10 10"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z"/></symbol>
-    <symbol id="i-backup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v4h-4"/><path d="M12 8v4l2.5 2.5"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="6.5" rx="1.5"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="1.5"/><path d="M7 7.25h.01M7 16.75h.01"/><path d="M2.5 2.5l19 19"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-6.6 6.6a1.5 1.5 0 0 1-2.1 0z"/><circle cx="8" cy="8" r="1.4"/><path d="M2.5 2.5l19 19"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="m15.6 15.6 5 5"/><path d="m7.6 10.6 2 2 3.6-3.8"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></symbol>
     <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   </defs>
 </svg>
@@ -48,264 +52,206 @@
 <header class="top">
   <div class="wide">
     <a class="brand" href="index.html"><svg aria-hidden="true"><use href="#i-logo"/></svg>Pocketful</a>
-    <nav class="links">
-      <a class="hide-sm" href="#discover">Features</a>
-      <a class="hide-sm" href="#bring">Bring your playlists</a>
-      <a class="hide-sm" href="privacy/index.html">Privacy</a>
-      <a class="hide-sm" href="contact/index.html">Contact</a>
-      <a class="cta" href="#get">Get it free</a>
+    <nav class="links" aria-label="Main">
+      <a class="hide-sm" href="#why">Why it's free</a>
+      <a class="hide-sm" href="#what">What it does</a>
+      <a class="hide-sm" href="#safe">Safety</a>
+      <a class="cta" href="#get">Get it</a>
     </nav>
   </div>
 </header>
 
-<main style="padding:0">
+<main class="home-main">
 
+  <!-- 1. The first look: one strong line, the two buttons, the four promises. -->
   <section class="hero">
+    <div class="sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="wide">
-      <div>
-        <p class="eyebrow">Free · No ads · No tracking</p>
-        <h1>Find music you'll love. <span>Keep it in your pocket.</span></h1>
-        <p class="sub">Walk a map of artists, start a radio from any song, travel through the world's genres. Then keep what you love in a beautiful library of your own, on your computer and your phone.</p>
+      <div class="hero-text">
+        <p class="kicker">A music app for Windows and Android</p>
+        <h1>The music app that <span>wants nothing from&nbsp;you.</span></h1>
+        <p class="sub">Discover new artists, bring your playlists from other apps, and keep a library of your own on your computer and your phone.</p>
         <div class="buttons">
           <a class="btn" href="#get"><svg aria-hidden="true"><use href="#i-down"/></svg>Get Pocketful</a>
-          <a class="btn ghost" href="#bring">Bring your playlists</a>
+          <a class="btn ghost" href="#why">Why is it free?</a>
         </div>
-        <p class="meta">Windows 10 and 11 · Android 8 and newer · Nothing to sign up for</p>
+        <ul class="promises" aria-label="Promises">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>No ads</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>No account</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>No tracking</li>
+        </ul>
       </div>
 
-      <div class="shots">
+      <div class="stage">
         <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="img/pc-map.webp" width="1600" height="1000" alt="Pocketful on Windows: a map of artists around Portishead, with Massive Attack, Björk, Tricky and many more, and the artist's top songs"></div>
-        <div class="phone"><img src="img/phone-map.webp" width="720" height="1600" alt="Pocketful on Android: the same map of artists"></div>
+        <div class="phone"><div class="screen"><img src="img/phone-map.webp" width="720" height="1600" alt="Pocketful on Android: the same map of artists"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="promises" aria-label="Promises">
+  <!-- 2. Why it exists: the honest answer to "what's the catch?". -->
+  <section class="section why" id="why">
     <div class="wide">
-      <div class="promise"><svg aria-hidden="true"><use href="#i-noad"/></svg><div><b>No ads. Ever.</b><span>Not a free tier. Just free.</span></div></div>
-      <div class="promise"><svg aria-hidden="true"><use href="#i-user"/></svg><div><b>No account.</b><span>Open it and play. No sign-up, no email.</span></div></div>
-      <div class="promise"><svg aria-hidden="true"><use href="#i-eye"/></svg><div><b>Nothing collected.</b><span>Not today, not ever. No analytics inside.</span></div></div>
-    </div>
-  </section>
-
-  <section class="section" id="bring">
-    <div class="wide">
-      <p class="eyebrow">Bring it all</p>
-      <h2>Your playlists come with you.</h2>
-      <p class="lead">Moving from another music app? Bring the playlists you've built over the years, in one go, with their names and their order.</p>
-      <div class="tiles three">
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-list"/></svg></div>
-          <h3>Paste a link</h3>
-          <p>Copy a playlist's link from the app you use today and paste it in Bring in. Every song finds its place.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-folder"/></svg></div>
-          <h3>Your whole library</h3>
-          <p>Most music apps let you ask for a copy of your data. Give that file to Pocketful and all your playlists come across at once.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></div>
-          <h3>From any app on your phone</h3>
-          <p>Share a playlist, an album or a song to Pocketful from the app you're in. That's all.</p>
+      <div class="why-head">
+        <p class="eyebrow">Why it exists</p>
+        <h2>We got fed up.</h2>
+        <ul class="struck" aria-label="What we got fed up with">
+          <li><s>Ads between songs</s></li>
+          <li><s>Apps that decide what you hear</s></li>
+          <li><s>Feeds that play you more of the same</s></li>
+          <li><s>Accounts that follow you everywhere</s></li>
+        </ul>
+      </div>
+      <div class="why-body">
+        <p class="lead">Pocketful is a personal, non-commercial project by a small team of music lovers who had enough of big tech. So we made the music app we wanted: one that helps you find music, then leaves you alone.</p>
+        <div class="how-free">
+          <h3>So how can it be free?</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-server"/></svg><div><b>Nothing runs on servers of ours.</b> Everything runs on your own computer and phone.</div></li>
+            <li><svg aria-hidden="true"><use href="#i-tag"/></svg><div><b>There's no business model.</b> Not a free tier, not a trial. Just free.</div></li>
+            <li><svg aria-hidden="true"><use href="#i-user"/></svg><div><b>Nothing to sell. Not even you.</b> No ads, no account, nothing collected. We don't even know who you are.</div></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="discover">
+  <!-- 3. What it does, in three blocks. -->
+  <section class="section what" id="what">
     <div class="wide">
-      <p class="eyebrow">Discover</p>
-      <h2>Go somewhere new, not more of the same.</h2>
-      <p class="lead">Pocketful is made for finding music you don't know yet. Start from an artist you love and follow the threads.</p>
-      <div class="tiles">
-        <div class="tile big">
-          <div>
-            <div class="icon"><svg aria-hidden="true"><use href="#i-spark"/></svg></div>
-            <h3>Surprise me</h3>
-            <p>One tap and Pocketful takes you somewhere you've never been: Taiwanese indie, Dangdut koplo, Ethio-jazz. Hundreds of styles from all over the world, each with its own radio.</p>
+      <p class="eyebrow">What it does</p>
+      <h2>Find music you'll love. <span>Keep it in your pocket.</span></h2>
+
+      <div class="blocks">
+        <article class="block discover">
+          <div class="block-text">
+            <h3><span class="icon"><svg aria-hidden="true"><use href="#i-compass"/></svg></span>Discover</h3>
+            <p><b>Go somewhere new, not more of the same.</b> Walk a map of artists, start a radio from any song, or tap Surprise me and land in Taiwanese indie, Ethio-jazz or Dangdut koplo.</p>
+            <ul class="chips" aria-label="Ways to discover"><li>Map of artists</li><li>Radios</li><li>World genres</li></ul>
           </div>
-          <div class="phones">
-            <div class="phone"><img src="img/phone-surprise.webp" width="720" height="1600" alt="Surprise me found Taiwanese indie" loading="lazy"></div>
-            <div class="phone"><img src="img/phone-genres.webp" width="720" height="1600" alt="Genres and styles to explore" loading="lazy"></div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-radio"/></svg></div>
-          <h3>Radios from anything</h3>
-          <p>Start a radio from an artist or a song. It keeps going on the artists you chose and their neighbours, with deep cuts mixed in.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></div>
-          <h3>The world's genres</h3>
-          <p>Hundreds of genres and styles from all over the world, each with its own colour, its artists and its classics.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-map"/></svg></div>
-          <h3>A map of artists</h3>
-          <p>Every artist sits among their neighbours. Tap one and the map moves with you.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
-          <h3>Artists you love</h3>
-          <p>Your favourites and the artists next door, on shelves made from what you play.</p>
-        </div>
+          <div class="peek"><div class="phone"><div class="screen"><img src="img/phone-surprise.webp" width="720" height="1600" alt="Surprise me found Taiwanese indie, with a radio and its artists" loading="lazy"></div></div></div>
+        </article>
+
+        <article class="block">
+          <h3><span class="icon"><svg aria-hidden="true"><use href="#i-list"/></svg></span>Bring your playlists</h3>
+          <p>Paste a playlist's link, or bring your whole library at once from the copy of your data that most music apps let you ask for. On a phone, just share to Pocketful.</p>
+        </article>
+
+        <article class="block">
+          <h3><span class="icon"><svg aria-hidden="true"><use href="#i-devices"/></svg></span>Keep it yours</h3>
+          <p>Your CDs, files and playlists in a tidy library with covers, kept on your own disk. Pair your phone and computer over your own Wi-Fi, or send music to USB drives and players.</p>
+        </article>
       </div>
+
+      <p class="artists"><svg aria-hidden="true"><use href="#i-heart"/></svg><span><b>Love it? Support the artist.</b> Every artist in Pocketful has a Support button: buy their music, see them live.</span></p>
     </div>
   </section>
 
-  <section class="section" id="library">
+  <!-- 4. Safe and private: what keeps it safe, and how anyone can check it without trusting us. -->
+  <section class="section safe" id="safe">
     <div class="wide">
-      <p class="eyebrow">Your library</p>
-      <h2>Your music, beautifully kept.</h2>
-      <p class="lead">Every song with its cover, the right artist and album, tidied for you. A library that's yours, on your own disk, not rented.</p>
-      <div class="tiles three">
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-disc"/></svg></div>
-          <h3>Your CDs</h3>
-          <p>Put a CD in and Pocketful keeps it in lossless quality, with covers and track names.</p>
+      <div class="safe-head">
+        <p class="eyebrow">Safe and private</p>
+        <h2>No viruses. Nothing hidden. <span>And you can check.</span></h2>
+        <p class="lead">Free can sound too good to be true, so don't take our word for it. Every release is signed, every file can be checked against a signed list, and you can scan it yourself before you open it.</p>
+        <div class="buttons">
+          <a class="btn ghost" href="https://www.virustotal.com/gui/home/upload" rel="noopener"><svg aria-hidden="true"><use href="#i-scan"/></svg>Scan it yourself<svg aria-hidden="true"><use href="#i-out"/></svg></a>
+          <a class="btn ghost" href="#check"><svg aria-hidden="true"><use href="#i-finger"/></svg>Check your download</a>
         </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-folder"/></svg></div>
-          <h3>Your files</h3>
-          <p>The music you already have, brought in and tidied by artist and album.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-list"/></svg></div>
-          <h3>Your playlists</h3>
-          <p>Bring in the playlists you made in other apps and keep them, together with your music.</p>
+      </div>
+
+      <figure class="gate" aria-label="How an update is checked">
+        <figcaption>Before any update is installed</figcaption>
+        <div class="gate-row ok"><svg class="f" aria-hidden="true"><use href="#i-file"/></svg><span>Signed with the project's offline key</span><b><svg aria-hidden="true"><use href="#i-check"/></svg>Installed</b></div>
+        <div class="gate-row no"><svg class="f" aria-hidden="true"><use href="#i-file"/></svg><span>Anything else</span><b><svg aria-hidden="true"><use href="#i-x"/></svg>Refused</b></div>
+        <p class="key">The apps carry only the public half of the key: <code>b9daab648cf354a7838b8e92d575fc871c949cfa9fa5e5f2c6f9d6cb20b993b9</code></p>
+      </figure>
+
+      <ul class="facts">
+        <li><svg aria-hidden="true"><use href="#i-key"/></svg><div><b>Signed by the project</b> <span>With a key that is kept offline and never goes online. The apps refuse any update that isn't.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-finger"/></svg><div><b>Every file's fingerprint, published</b> <span>The SHA-256 of every file comes with each release, in a list signed with the same key. <a href="#check">How to check</a></span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-globe"/></svg><div><b>Talks only to what it needs</b> <span>The music services it finds and plays music with, and the project's page on GitHub, for updates and notices.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-eye"/></svg><div><b>No ads, no trackers, no account</b> <span>Nothing collected, nothing to sign up for. The <a href="privacy/index.html">privacy page</a> is short.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-wifi"/></svg><div><b>Phone and computer, privately</b> <span>They talk directly over your own Wi-Fi, encrypted.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-lock"/></svg><div><b>Locked backups</b> <span>Protected with a password you choose.</span></div></li>
+      </ul>
+
+      <div class="callout">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <div>
+          <b>Why Windows shows a warning</b>
+          <p>Windows says "Windows protected your PC" about apps without a paid certificate, which costs money every year. Click <b>More info</b>, then <b>Run anyway</b>. More in <a href="safety/index.html">Is it safe?</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="sound">
-    <div class="wide">
-      <p class="eyebrow">Sound</p>
-      <h2>Made to sound good where you listen.</h2>
-      <p class="lead">On headphones, on speakers, in the car.</p>
-      <div class="window" style="margin-bottom:24px"><div class="bar"><i></i><i></i><i></i></div><img src="img/pc-sound.webp" width="1600" height="1000" alt="Playback and sound settings: normalize volume, loudness and an equalizer with presets such as Car, Warm and Night" loading="lazy"></div>
-      <div class="tiles three">
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-sliders"/></svg></div>
-          <h3>An equalizer for every place</h3>
-          <p>Car, Warm, Less harsh, Night and more, or save your own. Each device keeps its own sound.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-radio"/></svg></div>
-          <h3>Even volume</h3>
-          <p>Every song at about the same loudness, so you never reach for the volume between songs.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-spark"/></svg></div>
-          <h3>Clean on loud songs</h3>
-          <p>The loudest parts of a song are never cut off, so rock and loud pop stay clear.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="everywhere">
-    <div class="wide">
-      <p class="eyebrow">Everywhere</p>
-      <h2>On your computer. In your pocket. On the go.</h2>
-      <p class="lead">One look, one library, wherever you are.</p>
-      <div class="tiles three">
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-laptop"/></svg></div>
-          <h3>Windows</h3>
-          <p>Speakers, headphones and Bluetooth. Nothing to install: unzip and play.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></div>
-          <h3>Android</h3>
-          <p>The same app in your pocket. Pairs with your computer over your own Wi-Fi to bring your library and playlists across.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-usb"/></svg></div>
-          <h3>Players and drives</h3>
-          <p>Send your music to USB drives, SD cards and music players.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-backup"/></svg></div>
-          <h3>Never lose it</h3>
-          <p>Automatic backups with a password of your choice. A new phone or a new PC picks up right where you were.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <h3>Signed updates</h3>
-          <p>Every update is signed with a key that never goes online. Anything else is refused.</p>
-        </div>
-        <div class="tile">
-          <div class="icon"><svg aria-hidden="true"><use href="#i-eye"/></svg></div>
-          <h3>Private by design</h3>
-          <p>No accounts, no IDs, no analytics. Read the <a href="privacy/index.html">privacy page</a>: it's short.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="wide">
-    <section class="band" aria-label="Support the artists">
-      <div class="inner">
-        <svg width="34" height="34" style="color:var(--accent)" aria-hidden="true"><use href="#i-heart"/></svg>
-        <h2>Love it? Support the artist.</h2>
-        <p>Every artist in Pocketful has a Support button: buy their music, see them live. The music you love only exists because someone made it.</p>
-      </div>
-    </section>
-  </div>
-
-  <section class="section" id="get">
+  <!-- 5. Get it: two buttons, the steps folded away. -->
+  <section class="section get" id="get">
     <div class="wide">
       <p class="eyebrow">Get it</p>
       <h2>Free. Takes a minute.</h2>
-      <p class="lead">Every version is on the project's <a href="https://github.com/pocketful-official/pocketful/releases/latest">releases page</a>.</p>
-      <div class="cards">
-        <div class="card">
-          <h3><svg aria-hidden="true"><use href="#i-laptop"/></svg>Windows 10 and 11</h3>
-          <ol>
-            <li>Get <code>Pocketful-&lt;version&gt;-win64.zip</code>.</li>
-            <li>Unzip it anywhere, and open <code>Pocketful.exe</code>. Nothing to install.</li>
-            <li>If Windows says "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. It says this about apps that aren't signed with a paid certificate.</li>
-          </ol>
-          <a class="btn" href="https://github.com/pocketful-official/pocketful/releases/latest/download/Pocketful-0.14.0-win64.zip"><svg aria-hidden="true"><use href="#i-down"/></svg>Download for Windows</a>
-        </div>
-        <div class="card">
-          <h3><svg aria-hidden="true"><use href="#i-phone"/></svg>Android 8 and newer</h3>
-          <ol>
-            <li>On the phone, get <code>Pocketful-android-&lt;version&gt;.apk</code>.</li>
-            <li>Open it, and allow your browser to install apps when Android asks.</li>
-            <li>To bring your computer's library across, open Bring in → Your computer, if you like.</li>
-          </ol>
-          <a class="btn" href="https://github.com/pocketful-official/pocketful/releases/latest/download/Pocketful-android-0.14.0.apk"><svg aria-hidden="true"><use href="#i-down"/></svg>Download for Android</a>
-        </div>
-      </div>
 
-      <details class="more" id="check">
-        <summary>Check your download</summary>
-        <div>
-          <p>Each release lists the SHA-256 fingerprint of every file in <code>SHA256SUMS.txt</code>. If your file's fingerprint is the same as the one listed, it is exactly the file that was published.</p>
-          <p>On Windows, in a Command Prompt in the folder of the download:</p>
-          <pre><code>certutil -hashfile Pocketful-&lt;version&gt;-win64.zip SHA256</code></pre>
-          <p>On Android, the easiest way is to check the .apk on a computer the same way. After the first install, Android itself refuses any update that isn't signed with the same key as the app you have, and the app checks its own updates (below).</p>
-          <p><code>SHA256SUMS.txt.sig</code> is the project's signature of that list, made with a key that is kept offline and never goes online. The apps check it before installing anything. The public half of the key, to check it yourself, is <code>b9daab648cf354a7838b8e92d575fc871c949cfa9fa5e5f2c6f9d6cb20b993b9</code>. More in <a href="safety/index.html">Is it safe?</a></p>
-        </div>
-      </details>
-      <details class="more" id="updates">
-        <summary>How updates work</summary>
-        <div>
-          <ul>
-            <li>Once a day, Pocketful looks at the latest release on the project's releases page. You can turn this off in Settings → Updates.</li>
-            <li>A new version is installed only if its files match <code>SHA256SUMS.txt</code> and that list carries the project's signature. Anything else is refused, so not even someone who took over the project's GitHub account could push an update to you.</li>
-            <li>About once an hour it also reads the project's signed notice file, for news such as a version with a problem.</li>
-            <li>These are plain requests: no account, no ID, nothing about you or your device is sent. Like any website, GitHub can see your IP address.</li>
-          </ul>
-        </div>
-      </details>
-      <details class="more">
-        <summary>Questions, bugs and ideas</summary>
-        <div><p>Use <b>Feedback</b> in the app's Settings, or see the <a href="contact/index.html">contact page</a>.</p></div>
-      </details>
+      <div class="downloads">
+        <a class="dl" href="https://github.com/pocketful-official/pocketful/releases/latest/download/Pocketful-0.15.0-win64.zip">
+          <svg class="os" aria-hidden="true"><use href="#i-laptop"/></svg>
+          <span><b>Download for Windows</b><small>Windows 10 and 11 · Nothing to install</small></span>
+          <svg class="go" aria-hidden="true"><use href="#i-down"/></svg>
+        </a>
+        <a class="dl" href="https://github.com/pocketful-official/pocketful/releases/latest/download/Pocketful-android-0.15.0.apk">
+          <svg class="os" aria-hidden="true"><use href="#i-phone"/></svg>
+          <span><b>Download for Android</b><small>Android 8 and newer</small></span>
+          <svg class="go" aria-hidden="true"><use href="#i-down"/></svg>
+        </a>
+      </div>
+      <p class="releases">Every version is on the project's <a href="https://github.com/pocketful-official/pocketful/releases/latest">releases page</a>.</p>
+
+      <div class="folds">
+        <details class="more">
+          <summary>How to install</summary>
+          <div>
+            <p><b>On Windows</b></p>
+            <ol>
+              <li>Get <code>Pocketful-&lt;version&gt;-win64.zip</code>.</li>
+              <li>Unzip it anywhere, and open <code>Pocketful.exe</code> once the unzipping has finished. Nothing to install. If a message about a missing file appears the first time, open it again: your antivirus was still checking the new files.</li>
+              <li>If Windows says "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. It says this about apps that aren't signed with a paid certificate.</li>
+            </ol>
+            <p><b>On Android</b></p>
+            <ol>
+              <li>On the phone, get <code>Pocketful-android-&lt;version&gt;.apk</code>.</li>
+              <li>Open it, and allow your browser to install apps when Android asks.</li>
+              <li>To bring your computer's library across, open Bring in → Your computer, if you like.</li>
+            </ol>
+          </div>
+        </details>
+        <details class="more" id="check">
+          <summary>Check your download</summary>
+          <div>
+            <p>Each release lists the SHA-256 fingerprint of every file in <code>SHA256SUMS.txt</code>. If your file's fingerprint is the same as the one listed, it is exactly the file that was published.</p>
+            <p>On Windows, in a Command Prompt in the folder of the download:</p>
+            <pre><code>certutil -hashfile Pocketful-&lt;version&gt;-win64.zip SHA256</code></pre>
+            <p>On Android, the easiest way is to check the .apk on a computer the same way. After the first install, Android itself refuses any update that isn't signed with the same key as the app you have, and the app checks its own updates (below).</p>
+            <p>To scan it as well, upload it to <a href="https://www.virustotal.com/gui/home/upload" rel="noopener">VirusTotal</a>, which checks it with about 70 antivirus engines. If one or two little-known engines flag it, <a href="safety/index.html">Is it safe?</a> explains why.</p>
+            <p><code>SHA256SUMS.txt.sig</code> is the project's signature of that list, made with a key that is kept offline and never goes online. The apps check it before installing anything. The public half of the key, to check it yourself, is <code>b9daab648cf354a7838b8e92d575fc871c949cfa9fa5e5f2c6f9d6cb20b993b9</code>. More in <a href="safety/index.html">Is it safe?</a></p>
+          </div>
+        </details>
+        <details class="more" id="updates">
+          <summary>How updates work</summary>
+          <div>
+            <ul>
+              <li>Once a day, Pocketful looks at the latest release on the project's releases page. You can turn this off in Settings → Updates.</li>
+              <li>A new version is installed only if its files match <code>SHA256SUMS.txt</code> and that list carries the project's signature. Anything else is refused, so not even someone who took over the project's GitHub account could push an update to you.</li>
+              <li>About once an hour it also reads the project's signed notice file, for news such as a version with a problem.</li>
+              <li>These are plain requests: no account, no ID, nothing about you or your device is sent. Like any website, GitHub can see your IP address.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="more">
+          <summary>Questions, bugs and ideas</summary>
+          <div><p>Use <b>Feedback</b> in the app's Settings, or see the <a href="contact/index.html">contact page</a>.</p></div>
+        </details>
+      </div>
 
       <p class="fine">Pocketful is not for piracy. What you may copy depends on the law where you live and on the terms you have agreed to; please read the <a href="disclaimer/index.html">disclaimer</a>. Pocketful isn't affiliated with any music service. It is a personal, non-commercial project, made anonymously by The Pocketful Project.</p>
     </div>

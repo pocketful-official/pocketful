@@ -13,7 +13,7 @@ non-commercial purposes. Any commercial use needs written permission.
 
 **Not for piracy.** Pocketful does not endorse, encourage or support piracy or copyright
 infringement in any way. It is made for discovering music, organising your library,
-ripping your own CDs, importing your own files and playing your music on your own devices.
+copying your own CDs, importing your own files and playing your music on your own devices.
 It does not host, share or sell music, and it never shares anything between users.
 
 **What you may do depends on where you live and what you have agreed to.** Whether you may
