@@ -26,6 +26,20 @@ in PowerShell:
 The result must match the line in `SHA256SUMS.txt`. Check the Android .apk the same way on
 a computer.
 
+## Only from here
+
+Pocketful is published only on its page, https://pocketful-official.github.io/pocketful/, and
+on the project's [releases page](https://github.com/pocketful-official/pocketful/releases).
+It is never sold, never asks for a payment or an account, and isn't in Google Play or the
+Microsoft Store. A copy from anywhere else isn't the project's, and is easy to tell apart:
+
+- its SHA-256 isn't in any release's `SHA256SUMS.txt`;
+- on Android, it isn't signed with the project's certificate (below), so Android won't install
+  it over the real app.
+
+If you find one, please tell the project through the
+[contact page](https://pocketful-official.github.io/pocketful/contact/).
+
 ## Updates must be signed by the project
 
 Each release's `SHA256SUMS.txt` is signed (`SHA256SUMS.txt.sig`) with the project's Ed25519

@@ -48,9 +48,11 @@ requests and what it uses):
 | [Chaquopy](https://chaquo.com/chaquopy/) runtime | Runs the Python engine on Android | MIT | Copyright (c) Chaquo Ltd |
 | [QuickJS-ng](https://github.com/quickjs-ng/quickjs) | Used by yt-dlp for YouTube | MIT | Copyright (c) 2017-2024 Fabrice Bellard, Charlie Gordon and the QuickJS-ng contributors |
 | [ZXing](https://github.com/zxing/zxing) and [ZXing Android Embedded](https://github.com/journeyapps/zxing-android-embedded) | Reading the code your PC shows (Your computer) | Apache-2.0 | Copyright ZXing authors; Copyright (C) 2012-2022 ZXing authors, Journey Mobile |
+| [LAME](https://lame.sourceforge.io) 3.100, the encoder library only (`libpocketful_mp3.so`) | Writing MP3 downloads on the phone | LGPL-2.0-or-later (unmodified source, built as its own shared library, which can be replaced) | Copyright (c) 1999-2017 the LAME project and contributors |
 
 Pocketful reads and writes tags (M4A, MP3, FLAC, Ogg, WAV) with its own code, written
-from the public format specifications. It does not use any GPL library.
+from the public format specifications, and moves the music server's Opus into .opus files
+with its own code too. It does not use any GPL library.
 
 ## Facts and formats
 

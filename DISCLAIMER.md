@@ -63,7 +63,9 @@ names are used only to say what Pocketful works with; no logos are used.
 **Privacy.** Pocketful has no ads, no accounts and no tracking. It collects no data about
 you, sends no telemetry and keeps nothing on servers run by the authors: not today, and not
 ever. Everything runs on your own device. A Spotify data export you import is read on your
-PC and never leaves it. To check for updates and for project notices, Pocketful reads a
+PC and never leaves it. Diagnostics is off unless you turn it on: it then keeps a small
+record on your device, with nothing about your music, and it goes out only if you add it to
+a message you send. To check for updates and for project notices, Pocketful reads a
 public file from the project's host (GitHub), which, like any website, can
 see your IP address. If you write to the project's address, your message is kept only as
 long as needed to answer it.

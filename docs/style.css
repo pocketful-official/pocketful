@@ -340,3 +340,189 @@ footer p a { white-space: nowrap; }
 .table th, .table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
 .table th { color: var(--text); background: var(--surface); }
 .table tr:last-child td { border-bottom: 0; }
+
+/* ---------- home: What it does, the app at work (2026-10-31) ---------- */
+
+/* V1, "the app at work": What it does shows the app, alive. A phone drawn in CSS (no
+   screenshots, generated covers, no artist photos) plays one short story on a loop: the map,
+   an artist, Download, the library with the song playing. The three steps beside it light up
+   in time with it. One clock for everything: 18 s, three scenes of 6 s. */
+
+.live { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 26px; align-items: center; }
+@media (min-width: 900px) { .live { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; margin-top: 40px; } }
+
+/* the steps */
+.steps-live { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; order: 2; }
+@media (min-width: 900px) { .steps-live { order: 0; gap: 14px; } }
+.steps-live li { position: relative; display: flex; gap: 16px; margin: 0; padding: 18px 20px 18px 18px; border-radius: var(--card);
+  border: 1px solid var(--border); background: var(--surface); overflow: hidden; }
+.steps-live li::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--accent);
+  transform: scaleX(0); transform-origin: left; }
+.steps-live .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; flex: none; font-weight: 800; font-size: 15px;
+  background: var(--surface-2); color: var(--muted); }
+.steps-live b { display: block; font-size: 18px; letter-spacing: -0.01em; margin-bottom: 2px; }
+.steps-live li > div > span { color: var(--muted); font-size: 15.5px; line-height: 1.5; }
+@media (min-width: 900px) { .steps-live b { font-size: 20px; } }
+
+/* the phone */
+.demo { display: grid; place-items: center; position: relative; order: 1; }
+.demo::before { content: ""; position: absolute; z-index: -1; width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(251, 146, 60, .2), rgba(251, 146, 60, .05) 60%, transparent); }
+.dphone { width: min(300px, 78vw); aspect-ratio: 9 / 19.2; border-radius: 40px; border: 6px solid #1f1f1f; background: #0d0d0d;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .04); overflow: hidden; position: relative;
+  font-size: 12px; line-height: 1.35; color: #fff; user-select: none; }
+.scr { position: absolute; inset: 0; }
+.status { display: flex; justify-content: space-between; padding: 12px 20px 0; font-size: 11px; font-weight: 700; color: #ddd; }
+.status i { width: 26px; height: 9px; border-radius: 3px; background: #ddd; }
+.sc { position: absolute; left: 0; right: 0; top: 30px; bottom: 54px; padding: 10px 14px 0; }
+.apphead { display: flex; align-items: center; gap: 8px; margin: 2px 0 2px; }
+.apphead svg { width: 22px; height: 22px; color: var(--accent); }
+.apphead b { font-size: 21px; letter-spacing: -0.02em; }
+.apphead + small { display: block; color: var(--accent-text); font-size: 10.5px; font-weight: 600; margin: 0 0 10px 30px; }
+.pills { display: flex; gap: 5px; margin-bottom: 10px; }
+.pills i { font-style: normal; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); font-weight: 600; font-size: 10.5px; }
+.pills i.on { background: #fff; color: #111; }
+
+/* scene 1: the map */
+.map { position: relative; height: calc(100% - 92px); border-radius: 14px; overflow: hidden;
+  background: radial-gradient(60% 50% at 50% 45%, rgba(167, 139, 219, .16), transparent 70%),
+    radial-gradient(50% 40% at 20% 75%, rgba(111, 183, 168, .14), transparent 70%), #121212; }
+.pan { position: absolute; inset: 0; }
+.pan span { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); white-space: nowrap; display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 600; color: #cfcfcf; }
+.pan span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: oklch(.72 .09 var(--h, 300)); }
+.pan span.far { color: #7c7c7c; font-size: 9.5px; }
+.pan .hl { font-size: 15px; font-weight: 800; color: #fff; padding: 3px 9px 3px 7px; border-radius: 999px; background: rgba(255, 255, 255, .08); }
+.pan .hl::before { width: 9px; height: 9px; background: none; border: 2.5px solid var(--accent); box-shadow: inset 0 0 0 1.5px #121212, inset 0 0 0 4px var(--accent); }
+.tap { position: absolute; left: var(--x); top: var(--y); width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
+  background: rgba(255, 255, 255, .35); opacity: 0; }
+
+/* scene 2: the artist */
+.art { display: flex; align-items: center; gap: 12px; margin: 6px 0 12px; }
+.art .av { width: 62px; height: 62px; border-radius: 50%; flex: none; background: conic-gradient(from 200deg, #3b2f4f, #6b4a7a, #2c3e50, #3b2f4f); }
+.art b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+.art small { color: #9a9a9a; font-size: 10.5px; }
+.abtns { display: flex; gap: 6px; margin-bottom: 14px; }
+.abtns span { display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 12px; border-radius: 999px; background: var(--surface-2); font-weight: 700; font-size: 11px; }
+.abtns .play { width: 30px; padding: 0; justify-content: center; background: var(--accent); color: var(--accent-ink); }
+.abtns .add { position: relative; }
+.abtns .add .done { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 999px; background: var(--accent); color: var(--accent-ink); opacity: 0; }
+.rows .lbl { color: #8a8a8a; font-size: 9.5px; font-weight: 800; letter-spacing: .1em; margin: 0 0 6px; }
+.row { position: relative; display: flex; align-items: center; gap: 9px; padding: 7px 0; }
+.row .cv { width: 34px; height: 34px; border-radius: 6px; flex: none; }
+.row b { display: block; font-size: 12px; }
+.row small { color: #8a8a8a; font-size: 10px; }
+.row > div { flex: 1; min-width: 0; }
+.row .st { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 10px; font-weight: 900; opacity: 0; }
+.row .pb { position: absolute; left: 43px; right: 26px; bottom: 2px; height: 2px; border-radius: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.cv.g1 { background: linear-gradient(135deg, #1d2b3a, #3c6e8f 60%, #c9d6df); }
+.cv.g2 { background: linear-gradient(160deg, #40112a, #b0413e 55%, #f2a65a); }
+.cv.g3 { background: linear-gradient(120deg, #0f2e2a, #2f7a64 50%, #d9c27b); }
+.cv.g4 { background: linear-gradient(140deg, #26193f, #7356b5 55%, #e7a6c8); }
+.cv.g5 { background: linear-gradient(150deg, #2a1d10, #8a5a2b 55%, #e8c27a); }
+.cv.g6 { background: linear-gradient(130deg, #101820, #2f4858 50%, #86bbd8); }
+.choice { position: absolute; left: 14px; right: 14px; bottom: 10px; padding: 12px; border-radius: 16px; background: #1e1e1e; border: 1px solid #2c2c2c;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, .5); opacity: 0; transform: translateY(20px); }
+.choice p { margin: 0 0 8px; font-weight: 700; font-size: 12px; }
+.choice div { display: flex; gap: 6px; }
+.choice span { flex: 1; text-align: center; padding: 8px 0; border-radius: 10px; background: var(--surface-2); font-weight: 700; font-size: 11px; }
+.choice .dl { position: relative; overflow: hidden; }
+.choice .dl::after { content: "Download"; position: absolute; inset: 0; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); opacity: 0; }
+
+/* scene 3: the library, and the song playing */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.tiles div { position: relative; }
+.tiles .cv { display: block; aspect-ratio: 1; border-radius: 9px; }
+.tiles b { display: block; font-size: 11px; margin-top: 5px; }
+.tiles small { color: #8a8a8a; font-size: 9.5px; }
+.tiles .new .cv { box-shadow: 0 0 0 2px var(--accent); }
+.tiles .new::after { content: "New"; position: absolute; top: 6px; left: 6px; padding: 1px 6px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 9px; font-weight: 800; }
+.mini { position: absolute; left: 10px; right: 10px; bottom: 62px; display: flex; align-items: center; gap: 9px; padding: 7px 10px 9px 7px;
+  border-radius: 12px; background: #222; overflow: hidden; }
+.mini .cv { width: 32px; height: 32px; border-radius: 6px; flex: none; }
+.mini > div { flex: 1; min-width: 0; }
+.mini b { display: block; font-size: 11.5px; }
+.mini small { color: #9a9a9a; font-size: 10px; }
+.mini .line { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: #fff; transform-origin: left; transform: scaleX(.05); }
+.eq { display: flex; gap: 2px; align-items: flex-end; height: 14px; }
+.eq i { width: 3px; height: 100%; border-radius: 2px; background: var(--accent); transform-origin: bottom; }
+
+.tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 54px; display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #1e1e1e; background: #0d0d0d; }
+.tabs i { font-style: normal; font-size: 10px; font-weight: 700; color: #8a8a8a; padding: 4px 10px; border-radius: 999px; }
+
+/* ---------- the clock: 18 s, three scenes ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .s1 { animation: s1 18s infinite; } .s2 { animation: s2 18s infinite; } .s3 { animation: s3 18s infinite; }
+  .pan { animation: pan 18s cubic-bezier(.5, 0, .2, 1) infinite; }
+  .pan .from { animation: from 18s infinite; } .pan .to { animation: to 18s infinite; }
+  .tap { animation: tap 18s infinite; }
+  .abtns .add .done { animation: added 18s infinite; }
+  .choice { animation: choice 18s infinite; } .choice .dl::after { animation: pick 18s infinite; }
+  .row .pb { animation: fill 18s infinite; } .row:nth-child(3) .pb { animation-name: fill2; } .row:nth-child(4) .pb { animation-name: fill3; }
+  .row .st { animation: tick 18s infinite; } .row:nth-child(3) .st { animation-name: tick2; } .row:nth-child(4) .st { animation-name: tick3; }
+  .tiles .new { animation: arrive 18s infinite; }
+  .mini { animation: s3 18s infinite; } .mini .line { animation: playing 18s linear infinite; }
+  .eq i { animation: eq .9s ease-in-out infinite alternate; } .eq i:nth-child(2) { animation-delay: -.3s; } .eq i:nth-child(3) { animation-delay: -.6s; }
+  .tabs .t1 { animation: tab1 18s infinite; } .tabs .t2 { animation: tab2 18s infinite; }
+  .steps-live li { animation: step1 18s infinite; } .steps-live li:nth-child(2) { animation-name: step2; } .steps-live li:nth-child(3) { animation-name: step3; }
+  .steps-live li::after { animation: bar1 18s linear infinite; } .steps-live li:nth-child(2)::after { animation-name: bar2; } .steps-live li:nth-child(3)::after { animation-name: bar3; }
+  .steps-live li .n { animation: num1 18s infinite; } .steps-live li:nth-child(2) .n { animation-name: num2; } .steps-live li:nth-child(3) .n { animation-name: num3; }
+}
+@keyframes s1 { 0%, 31% { opacity: 1; transform: none; } 34%, 96% { opacity: 0; transform: scale(.98); } 100% { opacity: 1; transform: none; } }
+@keyframes s2 { 0%, 32% { opacity: 0; transform: translateY(36px); } 36%, 63% { opacity: 1; transform: none; } 66%, 100% { opacity: 0; transform: none; } }
+@keyframes s3 { 0%, 64% { opacity: 0; transform: translateY(12px); } 68%, 96% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; } }
+@keyframes pan { 0%, 15% { transform: none; } 24%, 33% { transform: translate(var(--px), var(--py)); } 34%, 100% { transform: none; } }
+@keyframes from { 0%, 16% { opacity: 1; } 22%, 96% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes to { 0%, 16% { opacity: 0; } 22%, 33% { opacity: 1; } 34%, 100% { opacity: 0; } }
+@keyframes tap { 0%, 10% { opacity: 0; transform: scale(.4); } 12% { opacity: .9; transform: scale(.7); } 17%, 100% { opacity: 0; transform: scale(1.9); } }
+@keyframes added { 0%, 43% { opacity: 0; } 45%, 64% { opacity: 1; } 66%, 100% { opacity: 0; } }
+@keyframes choice { 0%, 44% { opacity: 0; transform: translateY(20px); } 46%, 51% { opacity: 1; transform: none; } 53%, 100% { opacity: 0; transform: translateY(20px); } }
+@keyframes pick { 0%, 47.5% { opacity: 0; } 48.5%, 100% { opacity: 1; } }
+@keyframes fill { 0%, 52% { transform: scaleX(0); opacity: 1; } 57% { transform: scaleX(1); opacity: 1; } 58%, 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes fill2 { 0%, 53% { transform: scaleX(0); opacity: 1; } 59% { transform: scaleX(1); opacity: 1; } 60%, 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes fill3 { 0%, 54% { transform: scaleX(0); opacity: 1; } 61% { transform: scaleX(1); opacity: 1; } 62%, 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes tick { 0%, 57% { opacity: 0; transform: scale(.4); } 58.5%, 64% { opacity: 1; transform: none; } 66%, 100% { opacity: 0; } }
+@keyframes tick2 { 0%, 59% { opacity: 0; transform: scale(.4); } 60.5%, 64% { opacity: 1; transform: none; } 66%, 100% { opacity: 0; } }
+@keyframes tick3 { 0%, 61% { opacity: 0; transform: scale(.4); } 62.5%, 64% { opacity: 1; transform: none; } 66%, 100% { opacity: 0; } }
+@keyframes arrive { 0%, 68% { opacity: 0; transform: scale(.9); } 72%, 100% { opacity: 1; transform: none; } }
+@keyframes playing { 0%, 66% { transform: scaleX(.02); } 100% { transform: scaleX(.42); } }
+@keyframes eq { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+@keyframes tab1 { 0%, 64% { background: rgba(251, 146, 60, .16); color: var(--accent-text); } 66%, 100% { background: none; color: #8a8a8a; } }
+@keyframes tab2 { 0%, 64% { background: none; color: #8a8a8a; } 66%, 100% { background: rgba(251, 146, 60, .16); color: var(--accent-text); } }
+@keyframes step1 { 0%, 32% { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); } 34%, 100% { border-color: var(--border); } }
+@keyframes step2 { 0%, 32% { border-color: var(--border); } 34%, 65% { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); } 67%, 100% { border-color: var(--border); } }
+@keyframes step3 { 0%, 65% { border-color: var(--border); } 67%, 99% { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); } 100% { border-color: var(--border); } }
+@keyframes bar1 { 0% { transform: scaleX(0); opacity: 1; } 33.3% { transform: scaleX(1); opacity: 1; } 34%, 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes bar2 { 0%, 33.3% { transform: scaleX(0); opacity: 0; } 33.4% { opacity: 1; } 66.6% { transform: scaleX(1); opacity: 1; } 67.3%, 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes bar3 { 0%, 66.6% { transform: scaleX(0); opacity: 0; } 66.7% { opacity: 1; } 99.6% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes num1 { 0%, 32% { background: var(--accent); color: var(--accent-ink); } 34%, 100% { background: var(--surface-2); color: var(--muted); } }
+@keyframes num2 { 0%, 32% { background: var(--surface-2); color: var(--muted); } 34%, 65% { background: var(--accent); color: var(--accent-ink); } 67%, 100% { background: var(--surface-2); color: var(--muted); } }
+@keyframes num3 { 0%, 65% { background: var(--surface-2); color: var(--muted); } 67%, 99% { background: var(--accent); color: var(--accent-ink); } 100% { background: var(--surface-2); color: var(--muted); } }
+/* without motion: the first scene, still */
+@media (prefers-reduced-motion: reduce) { .s2, .s3, .mini, .tap, .pan .to, .choice { opacity: 0; } .row .pb, .row .st { opacity: 0; } }
+
+/* "The music app that wants nothing from you": its own quiet band, between what it does and why */
+.nothing { padding: 64px 0 0; text-align: center; }
+.nothing p { margin: 0 auto; max-width: 18em; font-size: clamp(30px, 6.4vw, 54px); line-height: 1.06; letter-spacing: -0.04em; font-weight: 800; }
+.nothing p span { color: var(--accent-text); }
+@media (min-width: 900px) { .nothing { padding-top: 120px; } }
+
+/* scene 2's lower half, and scene 3's shelf name */
+.lbl { color: #8a8a8a; font-size: 9.5px; font-weight: 800; letter-spacing: .1em; margin: 0 0 6px; }
+.lbl.fans { margin-top: 12px; }
+.lbl.shelf { margin: 0 0 8px; }
+.fans { display: flex; gap: 6px; flex-wrap: wrap; }
+.fans span { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px 5px 6px; border-radius: 999px; background: var(--surface-2); font-size: 10.5px; font-weight: 700; }
+.fans i { width: 14px; height: 14px; border-radius: 50%; background: oklch(.62 .08 var(--h)); }
+
+.abtns .add .done, .row .st { font-style: normal; }
+
+/* Support the project (donations not open yet), and the official address */
+.support-btn { margin-top: 14px; }
+.support-btn svg { color: var(--accent); }
+.official { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+.official svg { width: 18px; height: 18px; color: var(--accent); flex: none; margin-top: 3px; }
+.official b { color: var(--text); }
+.support-box { margin-top: 28px; }
+.support-box .soon { margin-top: 14px; min-height: 42px; font-size: 15px; color: var(--muted); cursor: default; }
+.support-box .soon:hover { transform: none; border-color: var(--border); }
