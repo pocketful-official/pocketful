@@ -9,7 +9,7 @@ No accounts, no tracking, no ads, no analytics. Pocketful talks only to:
 
 - the music services you use it with (Deezer, MusicBrainz and the others listed in the
   [third-party notices](THIRD-PARTY-NOTICES.md)), to find and play music;
-- this project's releases page, once a day if you leave it on, to see if there's a new
+- this project's releases page, a few times a day while it's open, if you leave it on, to see if there's a new
   version;
 - this project's `status.json`, about once an hour (see "The project's switch" below).
 

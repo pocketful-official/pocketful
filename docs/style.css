@@ -29,6 +29,9 @@
 
 * { box-sizing: border-box; }
 
+/* overflow-x: clip: nothing wider than the screen (the glow behind the phone) makes the page slide
+   sideways on a phone; unlike hidden, it leaves the sticky header alone. */
+html, body { overflow-x: clip; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 

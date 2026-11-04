@@ -3,6 +3,21 @@
 Find music you'll love, keep it in your pocket. The bigger changes of each version, on your
 computer and on your phone.
 
+## [0.17.2] - 2026-11-04
+
+**You'll know when there's a new version.**
+
+- **A new version tells you**: when one is out, Pocketful says so once, as you open it, with
+  Update and Not now. It looks a few times a day while it's open, and never when it's closed.
+- **On your computer, Settings shows where to go**: a line at the top with Update, and a dot on
+  Updates.
+- **A version that has to be retired can update right there**, from its own page.
+- **Whole albums no longer shows for a file with only albums**: they're whole already.
+- **Everything works where the music server's search isn't offered**, whether you live there or
+  your VPN comes out there: finding, playing and keeping songs, and radios, which were failing.
+- **A song's radio comes even when the music server has none for it**: it then comes from the
+  artists around that artist, and says so.
+
 ## [0.17.1] - 2026-11-03
 
 **Better sound everywhere, your listening, and music on your speakers that keeps going.**
