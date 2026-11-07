@@ -3,6 +3,36 @@
 Find music you'll love, keep it in your pocket. The bigger changes of each version, on your
 computer and on your phone.
 
+## [0.17.3] - 2026-11-07
+
+**Your playlists, your way, and sharing that opens in Pocketful.**
+
+### On both
+- **Change a playlist's order**: on your computer, drag a song to a new place; on your phone,
+  Edit order.
+- **Take a song out of a playlist** from its menu, with Undo. It stays in your library.
+- **Edit a playlist on either one** and the change reaches the other, whichever made it.
+- **A playlist without a picture shows its albums' covers.** A picture you choose goes with the
+  playlist between your computer and your phone.
+- **Share, and it opens in Pocketful**: a friend with Pocketful on an Android phone goes straight
+  to the song, album or artist. Everyone else sees the website.
+- **Empty the library keeps your settings**, and takes your listening history with it. It also
+  works now with a phone paired.
+- **Stream and Download look the same** everywhere: you choose, nothing pushes you.
+- **A note from the project waits** until the intro, the welcome and What's new are done, and a
+  note that a version is out no longer reaches whoever already has it.
+
+### On your computer
+- **A big file goes into Downloads at once**, even with thousands of albums.
+
+### On your phone
+- **Choose a picture for a playlist.**
+- **Play on a speaker leaves it alone** once you stop it there or something else plays on it
+  (another app, the TV): Pocketful no longer sends its music back by itself.
+- **Edit order scrolls by itself** when you hold a song near the top or the bottom.
+- **Old downloads left from before Pocketful was installed again** can be kept or deleted, and
+  no longer come back as copies.
+
 ## [0.17.2] - 2026-11-04
 
 **You'll know when there's a new version.**
