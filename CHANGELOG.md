@@ -3,6 +3,14 @@
 Find music you'll love, keep it in your pocket. The bigger changes of each version, on your
 computer and on your phone.
 
+## [0.17.5] - 2026-11-10
+
+**Send feedback always knows where to write.**
+
+### On both
+- **The project's email address stays** in Send feedback, also when a note from the project
+  comes from its phone.
+
 ## [0.17.4] - 2026-11-10
 
 **Easier to find new music, and sharing that works for every song.**
