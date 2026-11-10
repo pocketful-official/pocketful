@@ -3,6 +3,22 @@
 Find music you'll love, keep it in your pocket. The bigger changes of each version, on your
 computer and on your phone.
 
+## [0.17.4] - 2026-11-10
+
+**Easier to find new music, and sharing that works for every song.**
+
+### On both
+- **Bring in says what it's for**: find any song, artist or album right there, or bring music in
+  from your other places below.
+- **Not in your library yet?** Library's search offers to bring it in, with the same words.
+- **Every shared song opens in Pocketful**, also the ones that didn't in 0.17.3, and what you share
+  no longer names a music service.
+- **More links to a single song** can be brought in.
+
+### On your phone
+- **No more closing by itself** when headphones, the car or Android press Play while Pocketful
+  is closed with nothing to play.
+
 ## [0.17.3] - 2026-11-07
 
 **Your playlists, your way, and sharing that opens in Pocketful.**
