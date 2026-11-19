@@ -8,10 +8,64 @@
 <meta property="og:title" content="Pocketful: find music you'll love, keep it in your pocket">
 <meta property="og:description" content="A music app for Windows and Android. Free, no ads, no account, no tracking.">
 <meta property="og:image" content="https://pocketful-official.github.io/pocketful/og-0.16.png">
-<!-- A song, album or artist shared from Pocketful. With the app on an Android phone the link opens
-     the app there; here, the site as it is (the owner, 2026-11-06). -->
-<meta http-equiv="refresh" content="0; url=../">
-<script>location.replace("../");</script>
+<!-- A song, album, artist or playlist shared from Pocketful. With the app on an Android phone the
+     link opens the app there. Here: a playlist that carries its songs (after "#l=", never sent to
+     this site) shows them; anything else goes to the site as it is (the owner, 2026-11-06). -->
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #121212; color: #fff; font: 16px/1.5 system-ui, "Segoe UI", sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 18px 48px; }
+  .mark { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; color: #fff; text-decoration: none; }
+  .mark i { width: 22px; height: 22px; border-radius: 50%; border: 4px solid #fb923c; display: grid; place-items: center; box-sizing: border-box; }
+  .mark i::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fb923c; }
+  .k { color: #fb923c; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 28px 0 4px; }
+  h1 { margin: 0; font-size: 32px; line-height: 1.15; }
+  .sub { color: #a7a7a7; margin: 6px 0 18px; }
+  ol { list-style: none; padding: 0; margin: 0; border-top: 1px solid #262626; }
+  li { display: flex; gap: 14px; padding: 10px 2px; border-bottom: 1px solid #262626; }
+  li span { color: #6a6a6a; min-width: 2ch; text-align: right; }
+  li b { font-weight: 600; } li small { display: block; color: #a7a7a7; font-size: 14px; }
+  .get { display: inline-block; margin: 22px 0 8px; background: #fb923c; color: #1a0d03; font-weight: 800; padding: 12px 22px; border-radius: 999px; text-decoration: none; }
+  .note { color: #a7a7a7; font-size: 14px; }
+</style>
 </head>
-<body><p><a href="../">Pocketful</a></p></body>
+<body>
+<main id="page" hidden>
+  <a class="mark" href="../"><i></i>Pocketful</a>
+  <p class="k">A playlist, found with Pocketful</p>
+  <h1 id="name"></h1>
+  <p class="sub" id="sub"></p>
+  <ol id="songs"></ol>
+  <a class="get" href="../">Get Pocketful</a>
+  <p class="note">With Pocketful on an Android phone, this link opens the playlist in the app. On a computer, paste it in Bring in.</p>
+</main>
+<noscript><p><a href="../">Pocketful</a></p></noscript>
+<script>
+(async () => {
+  const go = () => location.replace("../");
+  const m = /(?:^#|&)l=([A-Za-z0-9_-]+)/.exec(location.hash);
+  if (!m || typeof DecompressionStream === "undefined") return go();
+  try {
+    const b64 = m[1].replace(/-/g, "+").replace(/_/g, "/");
+    const bin = Uint8Array.from(atob(b64 + "=".repeat((4 - b64.length % 4) % 4)), (c) => c.charCodeAt(0));
+    const stream = new Blob([bin]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    const body = JSON.parse(await new Response(stream).text());
+    const songs = (body.s || []).filter((x) => Array.isArray(x) && x[1]);
+    if (!songs.length) return go();
+    const text = (s) => document.createTextNode(String(s));
+    document.getElementById("name").append(text(body.n || "A playlist"));
+    document.getElementById("sub").append(text((body.b ? body.b + " · " : "") + songs.length + (songs.length === 1 ? " song" : " songs")));
+    document.title = (body.n || "A playlist") + " · Pocketful";
+    const list = document.getElementById("songs");
+    songs.forEach(([artist, title], i) => {
+      const li = document.createElement("li"), n = document.createElement("span"), d = document.createElement("div");
+      const t = document.createElement("b"), a = document.createElement("small");
+      n.append(text(i + 1)); t.append(text(title)); a.append(text(artist || ""));
+      d.append(t, a); li.append(n, d); list.append(li);
+    });
+    document.getElementById("page").hidden = false;
+  } catch (e) { go(); }
+})();
+</script>
+</body>
 </html>

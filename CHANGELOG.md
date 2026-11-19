@@ -3,6 +3,36 @@
 Find music you'll love, keep it in your pocket. The bigger changes of each version, on your
 computer and on your phone.
 
+## [0.18.0] - 2026-11-19
+
+**Discover opens on a map, one search finds everything, and radios you can tune.**
+
+### On both
+- **One search**, the same at the top of Discover, of Library and of Bring in: your music first,
+  then everything else, with an artist's own albums and songs first.
+- **Searching is much faster**, also on big libraries and slow connections, where it could take
+  a minute.
+- **Discover opens on a map** of artists close to yours. Tap a name to go there, play its radio
+  or open its page; the map remembers the way back.
+- **Radio from this map** plays the artists you see. **Journey** walks from one artist to the
+  next, and Now playing shows the way it went.
+- **Somewhere new** flies the map to a style from somewhere in the world you don't have yet.
+- **Tune a radio**: how often the artist comes back, popular songs or deep cuts, and how far it
+  wanders. Kept for your next radios.
+- **Every style says what it is** in one line, who it sounds a bit like, and shows its artists
+  on the map.
+- **Genres** shows your genres as bars, and each family of styles in its own colour.
+- **Your listening** fits in one line at the top of For you.
+- **Share a playlist** with the link it came from; a playlist made here shares a link that
+  carries its songs (a file, when it is very long).
+- **An artist's radio** plays about one song of theirs in eight.
+- **A shared link opens in front** of whatever was open.
+
+### On your phone
+- **The map gets out of the way** while you move it: the player and the tabs come back when you
+  let go.
+- **Now playing's cover fits** short screens.
+
 ## [0.17.5] - 2026-11-10
 
 **Send feedback always knows where to write.**
